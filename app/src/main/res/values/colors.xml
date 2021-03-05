@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+    <color name="mainSHLthemeLIGHT">#3a8fe3</color>
+    <color name="mainSHLthemeDARK">#194a7f</color>
+    <color name="buttonText">#edfcff</color>
+    <color name="NightModeBackground">#24221b</color>
+    <color name="NightModeAppBar">#3b3834</color>
+    <color name="DayModeBackground">#fffdf7</color>
+    <color name="Grey">#adadad</color>
+    <color name="ShadowGrey">#cccccc</color>
+    <color name="LightGrey">#e8e8e8</color>
+    <color name="ClickLightGrey">#fafafa</color>
+
+    <color name="lightBlue">#3887A9</color>
+    <color name="lightGreen">#9ED5CB</color>
+    <color name="lighterYellow">#FFEEA9</color>
+    <color name="lightYellow">#fffcb3</color>
+    <color name="mainYellow">#FFE066</color>
+    <color name="mainRed">#F25F5C</color>
+    <color name="mainBlue">#247BA0</color>
+    <color name="mainGreen">#70C1B3</color>
+    <color name="mainDark">#50514F</color>
+    <color name="Darker">#373736</color>
+    <color name="lightBlack">#252525</color>
+    <color name="almostBlack">#1C1C1C</color>
+</resources>

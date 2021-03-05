@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lighterYellow">
+
+    <ImageButton
+        android:id="@+id/add_note_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:src="@drawable/ic_white_plus"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/halfcircle_shape_up"
+        android:layout_alignParentBottom="true"/>
+
+    <ListView
+        android:id="@+id/notes_list"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:divider="@color/lighterYellow"
+        android:layout_above="@id/add_note_button"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="12dp"
+        android:dividerHeight="10dp"
+        android:headerDividersEnabled="true"
+        android:choiceMode="singleChoice"
+        android:descendantFocusability="blocksDescendants" />
+
+    <TextView
+        android:id="@+id/noNotes_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Заметок нет"
+        android:textSize="30sp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textColor="@color/mainDark"
+        android:visibility="gone"/>
+
+</RelativeLayout>

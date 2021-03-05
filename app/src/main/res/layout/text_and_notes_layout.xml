@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/text_and_notes_layout"
+    android:elevation="16dp">
+
+    <Button
+        android:id="@+id/peek_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/peek_height"
+        android:background="@color/mainBlue"
+        android:text="*"
+        android:textSize="20sp"
+        android:textColor="@color/colorWhite"
+        android:layout_alignParentBottom="true"
+        android:elevation="1dp"
+        />
+
+    <TextView
+        android:id="@+id/text_notes_tv"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@color/colorWhite"
+        android:layout_alignParentBottom="true"
+        android:textSize="17sp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:text="note"
+        android:textColor="@color/colorBlack"
+        android:scrollbars="vertical"
+        />
+
+    <TextView
+        android:id="@+id/bookText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:paddingBottom="7dp"
+        android:paddingTop="7dp"
+        android:layout_above="@id/peek_button"
+        android:lineSpacingMultiplier="1.25"
+        android:textColor="@color/colorBlack"
+        android:textSize="17sp"
+        android:elevation="1dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="1dp"
+        android:id="@+id/buttons_layout"
+        android:layout_above="@id/peek_button">
+
+        <Button
+            android:id="@+id/prev_page_button"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"/>
+
+        <Button
+            android:id="@+id/next_page_button"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"/>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/determinate_pb_download"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/DeterminatePB"
+        android:theme="@style/DeterminatePB"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_centerVertical="true"
+        android:visibility="visible"
+        android:progress="0"
+        android:elevation="15dp"
+        />
+
+    <ProgressBar
+        android:id="@+id/determinate_pb_prepare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/DeterminatePB"
+        android:theme="@style/DeterminatePB"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        android:progress="0"
+        android:elevation="15dp"
+        />
+
+    <TextView
+        android:id="@+id/downloadingWarningTV"
+        android:textSize="18sp"
+        android:textColor="@color/NightModeBackground"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/determinate_pb_download"
+        android:layout_marginTop="5dp"
+        android:text="Скачивание текста..."
+        android:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="15dp"/>
+
+    <TextView
+        android:id="@+id/preparingWarningTV"
+        android:textSize="18sp"
+        android:textColor="@color/NightModeBackground"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/determinate_pb_prepare"
+        android:layout_marginTop="5dp"
+        android:text="Подготовка текста..."
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="15dp"/>
+
+</RelativeLayout>

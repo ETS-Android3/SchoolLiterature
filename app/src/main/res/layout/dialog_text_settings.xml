@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialog_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/textSize_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Размер шрифта:"
+        android:textSize="20sp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/mainSHLthemeDARK"/>
+
+    <Button
+        android:id="@+id/plus"
+        android:layout_width="@dimen/dialog_button_size"
+        android:layout_height="@dimen/dialog_button_size"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:text="+"
+        android:textColor="@color/mainSHLthemeDARK"
+        android:background="@drawable/plus_minus"
+        android:textAlignment="center"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/textSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@id/plus"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="8dp"
+        android:text = "32"
+        android:textColor="@color/mainSHLthemeDARK"
+        android:textSize="23sp"/>
+
+    <Button
+        android:id="@+id/minus"
+        android:layout_width="@dimen/dialog_button_size"
+        android:layout_height="@dimen/dialog_button_size"
+        android:layout_toStartOf="@id/textSize"
+        android:background="@drawable/plus_minus"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:text="-"
+        android:textColor="@color/mainSHLthemeDARK"
+        android:textAlignment="center"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ночной режим:"
+        android:textSize="20sp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@id/textSize_tv"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/mainSHLthemeDARK"/>
+
+    <CheckBox
+        android:id="@+id/nightMode"
+        android:layout_width="@dimen/dialog_button_size"
+        android:layout_height="@dimen/dialog_button_size"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="3dp"
+        android:buttonTint="@color/mainSHLthemeDARK"
+        android:foregroundTint="@color/mainSHLthemeDARK"
+        android:backgroundTint="@color/mainSHLthemeDARK"
+        android:drawableTint="@color/mainSHLthemeDARK"
+        android:layout_below="@id/plus"/>
+</RelativeLayout>

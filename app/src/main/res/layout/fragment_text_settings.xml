@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightYellow"
+    >
+
+    <TextView
+        android:id="@+id/editAlignmentTV"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/Darker"
+        android:layout_marginTop="30dp"
+        android:textSize="@dimen/profile_text_size"
+        android:textStyle="bold"
+        android:text="Выравнивание\nтекста"
+        />
+
+    <ImageView
+        android:id="@+id/align_text_center"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_format_align_center"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="55dp"
+        />
+
+    <Switch
+        android:id="@+id/switch_alignment"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_toLeftOf="@id/align_text_center"
+        android:backgroundTint="@color/colorWhite"
+        android:thumbTint="@color/colorWhite"
+        android:scrollbarThumbHorizontal="@color/colorWhite"
+        android:foregroundTint="@color/colorWhite"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="47dp"
+        />
+
+    <ImageView
+        android:id="@+id/align_text_left"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_format_align_left"
+        android:layout_toLeftOf="@id/switch_alignment"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="55dp"
+        />
+
+    <TextView
+        android:id="@+id/nightModeTV"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/Darker"
+        android:layout_below="@id/editAlignmentTV"
+        android:layout_marginTop="28dp"
+        android:textSize="@dimen/profile_text_size"
+        android:textStyle="bold"
+        android:text="Тема"
+        />
+
+    <ImageView
+        android:id="@+id/style_dark"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/dark_theme"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="7dp"
+        android:layout_below="@id/align_text_center"
+        android:layout_marginTop="40dp"
+        />
+
+    <Switch
+        android:id="@+id/switch_style"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_toLeftOf="@id/align_text_center"
+        android:backgroundTint="@color/colorWhite"
+        android:thumbTint="@color/colorWhite"
+        android:scrollbarThumbHorizontal="@color/colorWhite"
+        android:foregroundTint="@color/colorWhite"
+        android:layout_marginRight="7dp"
+        android:layout_below="@id/switch_alignment"
+        android:layout_marginTop="20dp"
+        />
+
+    <ImageView
+        android:id="@+id/style_light"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/light_theme"
+        android:layout_toLeftOf="@id/switch_alignment"
+        android:layout_below="@id/align_text_left"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="40dp"
+        />
+
+</RelativeLayout>

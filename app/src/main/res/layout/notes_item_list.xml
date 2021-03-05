@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/note_item_bg">
+
+    <TextView
+        android:id="@+id/notePageNumber"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorBlack"
+        android:layout_centerVertical="true"
+        android:paddingLeft="6dp"
+        android:text="1111"
+        android:textSize="30sp"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/notePageNumber">
+
+    <TextView
+        android:id="@+id/noteText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="@color/Darker"
+        android:layout_centerVertical="true"
+        android:text="note text"
+        android:textSize="30sp"/>
+
+    <View
+        android:layout_width="2dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/noteText"
+        android:layout_alignTop="@id/noteText"
+        android:background="@color/mainBlue" />
+    </RelativeLayout>
+
+</RelativeLayout>
+
+

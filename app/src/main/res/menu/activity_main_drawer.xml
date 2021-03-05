@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:enabled="true"
+            android:id="@+id/nav_settings"
+            android:checked="false"
+            android:textSize="22sp"
+            android:icon="@drawable/ic_menu_settings"
+            android:title="@string/settings"
+            app:showAsAction="always"/>
+        <item
+            android:id="@+id/nav_regular_books"
+            android:checked="false"
+            android:textSize="22sp"
+            android:title="@string/regular_books"
+            android:icon="@drawable/ic_menu_books"
+            app:showAsAction="always"/>
+        <item
+            android:id="@+id/nav_info"
+            android:checked="false"
+            android:textSize="22sp"
+            android:title="Инструкция"
+            android:icon="@drawable/ic_menu_info"
+            app:showAsAction="always"/>\
+        <item
+            android:id="@+id/nav_exit"
+            android:checked="false"
+            android:textSize="22sp"
+            android:title="@string/action_exit"
+            android:icon="@drawable/ic_menu_exit"
+            app:showAsAction="always"/>
+    </group>
+
+</menu>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightYellow"
+    android:id="@+id/regular_books_layout">
+
+    <EditText
+        android:id="@+id/search_et"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/search_et"
+        android:hint="Поиск"
+        android:textCursorDrawable="@drawable/cursor_drawable"
+        android:textAlignment="textStart"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:singleLine="true"
+        android:paddingLeft="10dp"
+        android:textSize="22sp"
+        android:textColor="@color/mainDark"/>
+
+    <ListView
+        android:id="@+id/regular_books_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/lightYellow"
+        android:headerDividersEnabled="true"
+        android:scrollbars="none"
+        android:layout_below="@id/search_et"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:dividerHeight="15dp"
+        android:layout_marginTop="17dp"/>
+
+    <ProgressBar
+        android:id="@+id/progressBarBookList"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="@dimen/progress_bar_size"
+        android:layout_height="@dimen/progress_bar_size"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:indeterminate="true"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="@color/Darker"
+        android:visibility="gone"/>
+
+</RelativeLayout>

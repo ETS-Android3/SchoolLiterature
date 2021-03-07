@@ -38,7 +38,7 @@ public class CacheManager {
     public static int getTextStartIndexOnPage(Context context, String textName, int pageNum){
         SharedPreferences sp = context.getSharedPreferences(positionCache, Context.MODE_PRIVATE);
         String query = textName + "startIndex" + String.valueOf(pageNum);
-        int startIndex = sp.getInt(query, -1);
+        int startIndex = sp.getInt(query, 0);
         return startIndex;
     }
 
@@ -47,6 +47,11 @@ public class CacheManager {
         SharedPreferences.Editor ed = sp.edit();
         ed.putInt(textName + "startIndex" + String.valueOf(pageNum), indexStart);
         ed.commit();
+    }
+
+    public static boolean doesPageExist(Context context, String textName, int pageNum) {
+        SharedPreferences sp = context.getSharedPreferences(positionCache, Context.MODE_PRIVATE);
+        return sp.contains(textName + "startIndex" + String.valueOf(pageNum));
     }
 
     public static TextStyle getSettingsStyleMode(Context context){

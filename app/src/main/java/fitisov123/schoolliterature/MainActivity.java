@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity
     private static Context context;
     public static Toolbar toolbar;
     private static NavigationView navigationView;
-    public static InterstitialAd interstitialAd;
+    public static InterstitialAd interstetialAd;
     private static DrawerLayout drawer;
 
     private static HashMap<Integer, Integer> menuItemsMap = new HashMap<>();
@@ -73,16 +73,15 @@ public class MainActivity extends AppCompatActivity
 
         updateHeader();
 
-        MobileAds.initialize(context, getString(R.string.admob_app_id));
-        interstitialAd = new InterstitialAd(context);
-        interstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712"/*getString(R.string.admob_unit_id)*/);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        interstitialAd.loadAd(adRequest);
+        MobileAds.initialize(this, getString(R.string.admob_app_id));
+        interstetialAd = new InterstitialAd(this);
+        interstetialAd.setAdUnitId(getString(R.string.admob_unit_id));
+        interstetialAd.loadAd(new AdRequest.Builder().build());
 
-        interstitialAd.setAdListener(new AdListener() {
+        interstetialAd.setAdListener(new AdListener() {
             @Override
             public void onAdClosed() {
-                interstitialAd.loadAd(new AdRequest.Builder().build());
+                interstetialAd.loadAd(new AdRequest.Builder().build());
             }
         });
 

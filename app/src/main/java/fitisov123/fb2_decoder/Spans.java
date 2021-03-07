@@ -21,12 +21,15 @@ public class Spans extends SpannableResource {
     }
 
     public void sortSpans() {
+        Algorithm.logMessage("STARTED SORTING");
+
         spans = Algorithm.mergeSort(spans, 0, spans.size() - 1);
     }
 
     public void divideSpans(Context context) {
         String curTextName = DataStorage.getCurTextName();
         ArrayList<Span> newSpans = new ArrayList<>();
+        Algorithm.logMessage("Spans size: " + String.valueOf(spans.size()));
         for (int i = 0; i < spans.size(); i++) {
             Span span = spans.get(i);
             int l = -1, r = CacheManager.getTextLastPage(context, curTextName) + 1, m;
@@ -39,7 +42,7 @@ public class Spans extends SpannableResource {
                 }
             }
             int curPageStartIndex = CacheManager.getTextStartIndexOnPage(context, curTextName, l);
-            while (curPageStartIndex <= span.endIndex && curPageStartIndex != -1) {
+            while (curPageStartIndex <= span.endIndex && CacheManager.doesPageExist(context, curTextName, l)) {
                 if (curPageStartIndex < span.startIndex) {
                     int nextPageStartIndex = CacheManager.getTextStartIndexOnPage(context, curTextName, l + 1);
                     newSpans.add(new Span(span.type, span.startIndex, Algorithm.min(nextPageStartIndex - 1, span.endIndex)));
@@ -56,6 +59,7 @@ public class Spans extends SpannableResource {
                 newSpans.add(new Span(span.type, prevPageStartIndex, curPageStartIndex - 1));
                 curPageStartIndex = CacheManager.getTextStartIndexOnPage(context, curTextName, ++l);
             }
+            Algorithm.logMessage("cur span is " + i);
         }
     }
 

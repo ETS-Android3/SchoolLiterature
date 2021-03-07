@@ -223,7 +223,7 @@ public class PageDivider extends AsyncTask<Context, Integer, Void> {
 
     private static void processNote(SpannableStringBuilder noteText, String noteId) {
         List<Span> innerSpans = DataStorage.decoder.noteList.getNote(noteId).getSpans();
-        for(int j = 0; j < innerSpans.size(); j++){
+        for (int j = 0; j < innerSpans.size(); j++) {
             final Span innerSpan = innerSpans.get(j);
             Object innerStyleSpan = new StyleSpan(Typeface.NORMAL);
             switch (innerSpan.type) {
@@ -244,8 +244,10 @@ public class PageDivider extends AsyncTask<Context, Integer, Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
+        Algorithm.logMessage("ON POST EXECUTE");
         DataStorage.decoder.textSpans.divideSpans(context);
         DataStorage.decoder.textSpans.sortSpans();
+        Algorithm.logMessage("HERE!!!!!!!!!!!!!!!!!!!");
         DataStorage.textFragment.afterPageCalculation();
     }
 

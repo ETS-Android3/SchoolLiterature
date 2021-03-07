@@ -37,6 +37,7 @@ public class Algorithm {
     }
 
     public static <ObjectType extends Comparable<ObjectType>> ArrayList<ObjectType> mergeSort(ArrayList<ObjectType> arrayList, int l, int r){
+        Algorithm.logMessage("Boundaries: " + l + " " + r);
         if(arrayList == null) {
             return null;
         }

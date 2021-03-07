@@ -146,6 +146,7 @@ public class UserDataRequest extends AsyncTask<String, Integer, String> {
             }
 
         } catch (Exception e) {
+            Algorithm.logMessage(e.getMessage());
             response = "error";
         }
         return response;

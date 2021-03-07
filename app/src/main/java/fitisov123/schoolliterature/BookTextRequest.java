@@ -55,8 +55,6 @@ public class BookTextRequest extends AsyncTask<String, Integer, File> {
     @Override
     protected void onPostExecute(File file) {
         super.onPostExecute(file);
-        CacheManager.setTextCurPage(context, DataStorage.getCurTextName(), 0);
-        CacheManager.setTextStartIndexOnPage(context, DataStorage.getCurTextName(), 0, 0);
         DataStorage.decoder = new FB2Decoder(file);
         DataStorage.decoder.decodeFile();
         DataStorage.setCurText(DataStorage.decoder.getText());
@@ -110,7 +108,7 @@ public class BookTextRequest extends AsyncTask<String, Integer, File> {
             inputStream.close();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            Algorithm.logMessage(e.getMessage());
             response = "error";
         }
     }

@@ -65,6 +65,7 @@ public class TextFragment extends Fragment {
         text_tv.setVisibility(View.VISIBLE);
 
         if (CacheManager.getTextLastPage(context, DataStorage.getCurTextName()) == -1) {
+            DataStorage.textFragment = this;
             calculatePages();
         } else {
             preparingPB.setProgress(100);
@@ -73,7 +74,8 @@ public class TextFragment extends Fragment {
     }
 
     public void afterPageCalculation(){
-        int lastPage = CacheManager.getTextCurPage(context, DataStorage.getCurTextName());
+        Algorithm.logMessage("AFTER PAGE CALC");
+        int curPage = CacheManager.getTextCurPage(context, DataStorage.getCurTextName());
 
         max_page_tv.setText(String.valueOf(CacheManager.getTextLastPage(context, DataStorage.getCurTextName()) + 1));
 
@@ -89,10 +91,10 @@ public class TextFragment extends Fragment {
         peekButton.setClickable(true);
 
         TextFragmentManager.openNotes.setClickable(true);
-        if(MainActivity.interstitialAd.isLoaded()){
-            MainActivity.interstitialAd.show();
+        if (MainActivity.interstetialAd.isLoaded()){
+            MainActivity.interstetialAd.show();
         }
-        showPage(lastPage);
+        showPage(curPage);
     }
 
     private void calculatePages(){

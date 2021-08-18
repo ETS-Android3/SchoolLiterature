@@ -9,6 +9,8 @@ public class CacheManager {
     private static final String userDataCache = "SchoolLiteratureUserDataCache";
     private static final String bookListPositionCache = "SchoolLiteratureBookListPositionCache";
 
+    private static final String defaultNoteString = "g5=#g6=#g7=#g8=#g9=#g10=#g11=#";
+
     public static int getTextLastPage(Context context, String textName){
         SharedPreferences sp = context.getSharedPreferences(positionCache, Context.MODE_PRIVATE);
         int lastPage = sp.getInt(textName + "lastPage", -1);
@@ -140,5 +142,19 @@ public class CacheManager {
         SharedPreferences.Editor ed = sp.edit();
         ed.putInt(grade, position);
         ed.commit();
+    }
+
+    public static void setNotes(Context context, String notes) {
+        SharedPreferences sp = context.getSharedPreferences(userDataCache, Context.MODE_PRIVATE);
+        SharedPreferences.Editor ed = sp.edit();
+        ed.putString("notes", notes);
+        ed.commit();
+    }
+
+    public static String getNotes(Context context){
+        SharedPreferences sp = context.getSharedPreferences(userDataCache, Context.MODE_PRIVATE);
+        if(!sp.contains("notes"))
+            return defaultNoteString;
+        return sp.getString("notes", defaultNoteString);
     }
 }

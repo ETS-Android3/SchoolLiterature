@@ -128,7 +128,11 @@ public class TextFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = getActivity().getApplicationContext();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+        try {
+            ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+        } catch (NullPointerException exception) {
+            //no action bar exists
+        }
     }
 
     @Override

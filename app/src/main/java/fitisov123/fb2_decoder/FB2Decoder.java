@@ -66,6 +66,10 @@ public class FB2Decoder {
         }
     }
 
+    public boolean documentCreated() {
+        return document != null;
+    }
+
     public void decodeFile() {
         NodeList bodyList = document.getElementsByTagName(BODY);
         decodeBodies(bodyList);

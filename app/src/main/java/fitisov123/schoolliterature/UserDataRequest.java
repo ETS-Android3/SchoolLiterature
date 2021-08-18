@@ -74,6 +74,7 @@ public class UserDataRequest extends AsyncTask<String, Integer, String> {
                 switch (queryType) {
                     case "login": {
                         JsonDecoder.personDecode(data);
+                        CacheManager.setNotes(context, DataStorage.getFullNotesStr());
                         Intent intent = new Intent(context, MainActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);

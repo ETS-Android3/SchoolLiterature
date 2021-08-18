@@ -45,7 +45,7 @@ public class Spans extends SpannableResource {
             while (curPageStartIndex <= span.endIndex && CacheManager.doesPageExist(context, curTextName, l)) {
                 if (curPageStartIndex < span.startIndex) {
                     int nextPageStartIndex = CacheManager.getTextStartIndexOnPage(context, curTextName, l + 1);
-                    newSpans.add(new Span(span.type, span.startIndex, Algorithm.min(nextPageStartIndex - 1, span.endIndex)));
+                    newSpans.add(new Span(span.type, span.startIndex, Math.min(nextPageStartIndex - 1, span.endIndex)));
                     curPageStartIndex = CacheManager.getTextStartIndexOnPage(context, curTextName, ++l);
                     continue;
                 }

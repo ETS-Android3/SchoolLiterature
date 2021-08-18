@@ -2,6 +2,7 @@ package fitisov123.schoolliterature;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -56,10 +57,14 @@ public class BookTextRequest extends AsyncTask<String, Integer, File> {
     protected void onPostExecute(File file) {
         super.onPostExecute(file);
         DataStorage.decoder = new FB2Decoder(file);
-        DataStorage.decoder.decodeFile();
-        DataStorage.setCurText(DataStorage.decoder.getText());
-        requestReady = true;
-        DataStorage.textFragment.afterTextDownloading();
+        if (DataStorage.decoder.documentCreated()) {
+            DataStorage.decoder.decodeFile();
+            DataStorage.setCurText(DataStorage.decoder.getText());
+            requestReady = true;
+            DataStorage.textFragment.afterTextDownloading();
+        } else {
+            Toast.makeText(context, "Не удалось получить текст произведения.", Toast.LENGTH_LONG).show();
+        }
     }
 
     public void performPostCall() {

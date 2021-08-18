@@ -5,14 +5,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Algorithm {
-    public static int min(int a, int b) {
-        if (a <= b) {
-            return a;
-        } else {
-            return b;
-        }
-    }
-
     public static int kmp(String text, String sample) {
         StringBuilder union = new StringBuilder(sample);
         union.append('^');

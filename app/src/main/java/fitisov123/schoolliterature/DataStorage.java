@@ -17,7 +17,7 @@ public class DataStorage {
     private static String textNames, textAuthors;
     private static String curTextName, curTextAuthor;
     private static StringBuilder curText;
-    private static String curGradeNotesStr,  fullNotesStr;
+    private static String curGradeNotesStr, fullNotesStr;
     private static boolean bookListInfoLoaded = false;
     private static HashMap<String, ArrayList<String> > notesHM = new HashMap<>();
     private static File textFile;

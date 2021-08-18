@@ -45,6 +45,8 @@ public class TextNotesFragment extends Fragment {
         noNotesTv = (TextView) layout.findViewById(R.id.noNotes_tv);
         addNoteButton = (ImageButton) layout.findViewById(R.id.add_note_button);
 
+        Algorithm.logMessage(CacheManager.getNotes(context));
+
         initialiseNotesList();
 
         notesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -119,6 +121,7 @@ public class TextNotesFragment extends Fragment {
             public void onClick(View v) {
                 DataStorage.eraseFromGradeNotesStr(position);
                 DataStorage.updateCurGradePartInFullNotesStr();
+                CacheManager.setNotes(context, DataStorage.getFullNotesStr());
                 new UserDataRequest(context).execute("update_notes", DataStorage.getUserId(), DataStorage.getFullNotesStr());
                 initialiseNotesList();
                 dialogChangeOrDeleteNote.dismiss();
@@ -179,6 +182,7 @@ public class TextNotesFragment extends Fragment {
                             DataStorage.eraseFromGradeNotesStr(position);
                             DataStorage.addToCurGradeNotesStr(curNoteText, String.valueOf(newNoteIndex));
                             DataStorage.updateCurGradePartInFullNotesStr();
+                            CacheManager.setNotes(context, DataStorage.getFullNotesStr());
                             new UserDataRequest(getActivity()).execute("update_notes", DataStorage.getUserId(), DataStorage.getFullNotesStr());
                             initialiseNotesList();
                             changeNoteDialog.dismiss();
@@ -248,6 +252,7 @@ public class TextNotesFragment extends Fragment {
                     int newNoteIndex = CacheManager.getTextStartIndexOnPage(context, DataStorage.getCurTextName(), curNotePage);
                     DataStorage.addToCurGradeNotesStr(curNoteText, String.valueOf(newNoteIndex));
                     DataStorage.updateCurGradePartInFullNotesStr();
+                    CacheManager.setNotes(context, DataStorage.getFullNotesStr());
                     new UserDataRequest(getActivity()).execute("update_notes", DataStorage.getUserId(), DataStorage.getFullNotesStr());
                     initialiseNotesList();
                     dialogNewNote.dismiss();
@@ -260,9 +265,5 @@ public class TextNotesFragment extends Fragment {
         });
 
         dialogNewNote.show();
-    }
-
-    public static void afterAddingNote(){
-
     }
 }

@@ -172,12 +172,14 @@ public class PageDivider extends AsyncTask<Context, Integer, Void> {
         Page result = new Page();
         CacheManager.setTextCurPage(context, DataStorage.getCurTextName(), curPage);
         int startIndex = CacheManager.getTextStartIndexOnPage(context, DataStorage.getCurTextName(), curPage);
-        int nextPageStart = CacheManager.getTextStartIndexOnPage(context, DataStorage.getCurTextName(), curPage + 1);
-        int endIndex = DataStorage.getCurText().length() - 1;
-        if (nextPageStart != -1) {
-            endIndex = nextPageStart - 1;
+        int endIndex;
+        if (CacheManager.doesPageExist(context, DataStorage.getCurTextName(), curPage + 1)) {
+            endIndex = CacheManager.getTextStartIndexOnPage(context, DataStorage.getCurTextName(), curPage + 1) - 1;
+        } else {
+            endIndex = DataStorage.getCurText().length() - 1;
         }
 
+        Algorithm.logMessage("Start index: " + startIndex + ", end index: " + endIndex);
         result.pageText = new SpannableStringBuilder(DataStorage.getCurText().substring(startIndex, endIndex + 1));
 
         //we get the spans which are on our page
@@ -244,10 +246,8 @@ public class PageDivider extends AsyncTask<Context, Integer, Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        Algorithm.logMessage("ON POST EXECUTE");
         DataStorage.decoder.textSpans.divideSpans(context);
         DataStorage.decoder.textSpans.sortSpans();
-        Algorithm.logMessage("HERE!!!!!!!!!!!!!!!!!!!");
         DataStorage.textFragment.afterPageCalculation();
     }
 
